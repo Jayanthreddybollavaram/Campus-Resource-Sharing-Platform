@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CampusShare - Borrow Request</title>
+
+    <link rel="stylesheet"
+            href="../css/post-resource.css">
+    <link rel="stylesheet" href="../css/site.css">
+
+    <script src="../js/borrow-request.js"
+            defer></script>
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            🎓 Campus<span>Share</span>
+        </div>
+
+        <a href="student-dashboard.html">
+            🏠 Dashboard
+        </a>
+
+        <a href="browse.html">
+            📚 Browse Resources
+        </a>
+
+        <a href="my_requests.html">
+            📝 My Requests
+        </a>
+
+        <a href="active-borrowings.html">
+            📦 Active Borrowings
+        </a>
+
+        <a href="Borrow-request.html" class="active">
+            📩 Borrow Request
+        </a>
+
+        <a href="login.html">
+            🚪 Logout
+        </a>
+
+    </aside>
+
+
+    <main class="main">
+
+        <div class="header">
+
+            <h1>Request to Borrow</h1>
+
+            <p>
+                Submit a request to borrow this resource.
+            </p>
+
+        </div>
+
+
+        <div class="request-card">
+
+            <h2 id="resourceName">
+                Loading resource...
+            </h2>
+
+            <p id="resourceCategory"></p>
+
+
+            <form id="borrowForm">
+
+                <div class="form-group">
+
+                    <label for="returnDate">
+                        Expected Return Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="returnDate"
+                        required
+                    >
+
+                    <small>Return date must be within 30 days.</small>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        rows="5"
+                        placeholder="Enter the reason for borrowing..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="submitButton">
+
+                    Submit Borrow Request
+
+                </button>
+
+
+                <p id="messageBox"></p>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

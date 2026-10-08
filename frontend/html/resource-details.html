@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CampusShare - Resource Details</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/resource-details.css"
+    >
+    <link rel="stylesheet" href="../css/site.css">
+
+    <script
+        src="../js/resource-details.js"
+        defer
+    ></script>
+
+</head>
+
+
+<body>
+
+
+<!-- =================================================
+     SIDEBAR
+================================================= -->
+
+<aside class="sidebar">
+
+    <div class="side-logo">
+        🎓 Campus<span>Share</span>
+    </div>
+
+
+    <a href="student-dashboard.html">
+        🏠 Dashboard
+    </a>
+
+
+    <a href="browse.html">
+        📚 Browse Resources
+    </a>
+
+
+    <a href="my_requests.html">
+        📝 My Requests
+    </a>
+
+
+    <a href="active-borrowings.html">
+        📦 Active Borrowings
+    </a>
+
+
+    <a href="#" onclick="logout(); return false;">
+        🚪 Logout
+    </a>
+
+</aside>
+
+
+
+<!-- =================================================
+     MAIN
+================================================= -->
+
+<main class="main-content">
+
+
+    <a
+        href="browse.html"
+        class="back-link"
+    >
+        ← Back to Resources
+    </a>
+
+
+    <div
+        id="loading"
+        class="loading"
+    >
+        Loading resource...
+    </div>
+
+
+    <div
+        id="resourceContainer"
+        class="resource-details"
+        style="display:none;"
+    >
+
+
+        <!-- IMAGE -->
+
+        <div class="resource-image">
+
+            <img
+                id="resourceImage"
+                src=""
+                alt="Resource"
+            >
+
+        </div>
+
+
+
+        <!-- INFORMATION -->
+
+        <div class="resource-info">
+
+            <span
+                id="resourceCategory"
+                class="category"
+            >
+            </span>
+
+
+            <h1 id="resourceName">
+                Resource
+            </h1>
+
+
+            <p
+                id="resourceDescription"
+                class="description"
+            >
+            </p>
+
+
+            <div class="details-grid">
+
+                <div class="detail-box">
+
+                    <span>Condition</span>
+
+                    <strong id="resourceCondition">
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span>Availability</span>
+
+                    <strong id="resourceAvailability">
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span>Borrow Duration</span>
+
+                    <strong id="borrowDuration">
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span>Owner</span>
+
+                    <strong id="ownerName">
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="requestButton"
+                class="request-button"
+            >
+                Request to Borrow
+            </button>
+
+
+            <p
+                id="requestMessage"
+                class="message"
+            >
+            </p>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+</body>
+
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CampusShare - Post Resource</title>
+
+    <link rel="stylesheet"
+          href="../css/post-resource.css">
+    <link rel="stylesheet" href="../css/site.css">
+
+    <script src="../js/post-resource.js"
+            defer></script>
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            🎓 Campus<span>Share</span>
+        </div>
+
+        <a href="student-dashboard.html">
+            🏠 Dashboard
+        </a>
+
+        <a href="browse.html">
+            📚 Browse Resources
+        </a>
+
+        <a href="post-resource.html"
+           class="active">
+            ➕ Post a Resource
+        </a>
+
+        <a href="my_requests.html">
+            📝 My Requests
+        </a>
+
+        <a href="active-borrowings.html">
+            📦 Active Borrowings
+        </a>
+
+        <a href="Borrow-request.html">
+            📩 Borrow Requests
+        </a>
+
+        <a href="login.html"
+           onclick="logout()">
+            🚪 Logout
+        </a>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main">
+
+        <div class="header">
+
+            <h1>
+                Post a Resource
+            </h1>
+
+            <p>
+                Share your useful resources with other students.
+            </p>
+
+        </div>
+
+
+        <!-- ================= FORM CARD ================= -->
+
+        <div class="form-card">
+
+            <form id="resourceForm">
+
+
+                <!-- RESOURCE NAME -->
+
+                <div class="form-group">
+
+                    <label for="resourceName">
+                        Resource Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="resourceName"
+                        placeholder="Example: Scientific Calculator"
+                        maxlength="100"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- CATEGORY -->
+
+                <div class="form-group">
+
+                    <label for="category">
+                        Category
+                    </label>
+
+                    <select id="category"
+                            required>
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option value="Books">
+                            Books
+                        </option>
+
+                        <option value="Calculators">
+                            Calculators
+                        </option>
+
+                        <option value="Electronics">
+                            Electronics
+                        </option>
+
+                        <option value="Drawing Kits">
+                            Drawing Kits
+                        </option>
+
+                        <option value="Lab Equipment">
+                            Lab Equipment
+                        </option>
+
+                        <option value="Others">
+                            Others
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        rows="5"
+                        maxlength="500"
+                        placeholder="Describe your resource..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- CONDITION -->
+
+                <div class="form-group">
+
+                    <label for="condition">
+                        Condition
+                    </label>
+
+                    <select id="condition"
+                            required>
+
+                        <option value="">
+                            Select Condition
+                        </option>
+
+                        <option value="Excellent">
+                            Excellent
+                        </option>
+
+                        <option value="Good">
+                            Good
+                        </option>
+
+                        <option value="Fair">
+                            Fair
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- BORROW DURATION -->
+
+                <div class="form-group">
+
+                    <label for="borrowDuration">
+                        Maximum Borrow Duration
+                    </label>
+
+                    <select id="borrowDuration"
+                            required>
+
+                        <option value="">
+                            Select Duration
+                        </option>
+
+                        <option value="7 Days">
+                            7 Days
+                        </option>
+
+                        <option value="14 Days">
+                            14 Days
+                        </option>
+
+                        <option value="30 Days">
+                            30 Days
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- IMAGE -->
+
+                <div class="form-group">
+
+                    <label for="resourceImage">
+                        Resource Image
+                    </label>
+
+                    <input
+                        type="file"
+                        id="resourceImage"
+                        accept="image/png,image/jpeg,image/jpg,image/webp"
+                    >
+
+                    <small>
+                        Select an image of your resource.
+                    </small>
+
+                </div>
+
+
+                <!-- IMAGE PREVIEW -->
+
+                <div id="imagePreview"
+                     class="image-preview">
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    id="submitButton">
+
+                    Post Resource
+
+                </button>
+
+
+                <!-- MESSAGE -->
+
+                <p id="messageBox"></p>
+
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+</body>
+
+</html>

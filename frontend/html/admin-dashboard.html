@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - CampusShare</title>
+
+    <link rel="stylesheet" href="../css/student-dashboard.css">
+    <link rel="stylesheet" href="../css/site.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+
+    <aside class="sidebar admin-sidebar">
+
+        <div class="side-logo">
+            🎓 Campus<span>Share</span>
+        </div>
+
+
+        <a href="admin-dashboard.html"
+           class="side-link active">
+            🏠 Dashboard
+        </a>
+
+        <a href="#users"
+           class="side-link">
+            👥 Users
+        </a>
+
+        <a href="#resources"
+           class="side-link">
+            📚 Resources
+        </a>
+
+        <a href="#requests"
+           class="side-link">
+            📩 Requests
+        </a>
+
+        <a href="#transactions"
+           class="side-link">
+            🔄 Transactions
+        </a>
+
+        <a href="login.html"
+           class="side-link">
+            🚪 Logout
+        </a>
+
+    </aside>
+
+
+    <main class="dashboard-main">
+
+        <div class="dashboard-header">
+
+            <div>
+
+                <h1>Admin Dashboard</h1>
+
+                <p>
+                    CampusShare platform overview.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ADMIN STATISTICS -->
+
+        <div class="stats-grid admin-stats">
+
+            <div class="stat-card blue">
+
+                <h2>120</h2>
+
+                <p>Total Users</p>
+
+            </div>
+
+
+            <div class="stat-card green">
+
+                <h2>85</h2>
+
+                <p>Items Listed</p>
+
+            </div>
+
+
+            <div class="stat-card purple">
+
+                <h2>60</h2>
+
+                <p>Active Borrowings</p>
+
+            </div>
+
+
+            <div class="stat-card orange">
+
+                <h2>250</h2>
+
+                <p>Total Transactions</p>
+
+            </div>
+
+        </div>
+
+
+        <!-- RECENT ACTIVITY -->
+
+        <div class="dashboard-section"
+             id="transactions">
+
+            <div class="section-title">
+
+                <h2>Recent Activity</h2>
+
+                <a href="#">
+                    View All
+                </a>
+
+            </div>
+
+
+            <div class="activity">
+
+                <div class="activity-icon">
+                    👨‍🎓
+                </div>
+
+                <div>
+
+                    <p>
+                        <strong>Rahul Sharma</strong>
+                        listed an item
+                        <strong>“Arduino Kit”</strong>
+                    </p>
+
+                    <small>
+                        18 May 2026
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="activity">
+
+                <div class="activity-icon">
+                    👩‍🎓
+                </div>
+
+                <div>
+
+                    <p>
+                        <strong>Neha Patel</strong>
+                        returned
+                        <strong>“DSA Textbook”</strong>
+                    </p>
+
+                    <small>
+                        17 May 2026
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="activity">
+
+                <div class="activity-icon">
+                    👨‍🎓
+                </div>
+
+                <div>
+
+                    <p>
+                        <strong>Amit Kumar</strong>
+                        borrowed
+                        <strong>“Calculator”</strong>
+                    </p>
+
+                    <small>
+                        17 May 2026
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- USER TABLE -->
+
+        <div class="table-card"
+             id="users">
+
+            <div class="section-title">
+
+                <h2>Recent Users</h2>
+
+                <a href="#">
+                    Manage Users
+                </a>
+
+            </div>
+
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Roll Number</th>
+                        <th>Department</th>
+                        <th>Year</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>Rahul Sharma</td>
+                        <td>22CSE123</td>
+                        <td>CSE</td>
+                        <td>3rd Year</td>
+
+                        <td>
+                            <span class="status approved">
+                                Active
+                            </span>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>Priya Singh</td>
+                        <td>22ECE031</td>
+                        <td>ECE</td>
+                        <td>2nd Year</td>
+
+                        <td>
+                            <span class="status approved">
+                                Active
+                            </span>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>Amit Kumar</td>
+                        <td>22CSE054</td>
+                        <td>CSE</td>
+                        <td>2nd Year</td>
+
+                        <td>
+                            <span class="status approved">
+                                Active
+                            </span>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

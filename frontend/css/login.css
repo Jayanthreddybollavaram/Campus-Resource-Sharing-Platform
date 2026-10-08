@@ -1,0 +1,573 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f5f3ff;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+/* ================= MAIN PAGE ================= */
+
+.login-page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+}
+
+
+/* =========================================================
+   LEFT PANEL
+   ========================================================= */
+
+.left-panel {
+    width: 43%;
+
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        150deg,
+        #faf9ff 0%,
+        #eeebff 48%,
+        #dcd3ff 100%
+    );
+
+    border-radius: 0 30px 30px 0;
+}
+
+
+/* =========================================================
+   PURPLE BOTTOM SHAPE
+   ========================================================= */
+
+.left-panel::after {
+    content: "";
+
+    position: absolute;
+
+    left: -100px;
+    bottom: -170px;
+
+    width: 850px;
+    height: 430px;
+
+    background: linear-gradient(
+        140deg,
+        #7346e6,
+        #4d29bd
+    );
+
+    border-radius: 50% 50% 0 0;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+    position: absolute;
+
+    top: 45px;
+    left: 45px;
+
+    z-index: 5;
+
+    text-align: center;
+
+    width: 330px;
+}
+
+
+.cap-icon {
+    font-size: 48px;
+
+    margin-bottom: 5px;
+}
+
+
+.brand h1 {
+    font-size: 34px;
+
+    color: #171735;
+
+    letter-spacing: -1px;
+}
+
+
+.brand h1 span {
+    color: #6338d8;
+}
+
+
+.brand p {
+    margin-top: 5px;
+
+    font-size: 14px;
+
+    color: #4f4f67;
+}
+
+
+/* =========================================================
+   STUDENT IMAGE
+   ========================================================= */
+
+.student-image {
+    position: absolute;
+
+    left: 30px;
+    right: 30px;
+
+    top: 190px;
+    bottom: 170px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 3;
+}
+
+
+.student-image img {
+    width: 100%;
+
+    max-width: 390px;
+
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   QUOTE
+   ========================================================= */
+
+.quote {
+    position: absolute;
+
+    left: 60px;
+
+    bottom: 45px;
+
+    z-index: 5;
+
+    color: white;
+}
+
+
+.quote-mark {
+    font-size: 55px;
+
+    height: 35px;
+
+    opacity: 0.35;
+
+    font-family: Georgia, serif;
+}
+
+
+.quote p {
+    font-size: 18px;
+
+    line-height: 1.65;
+
+    font-weight: 500;
+}
+
+
+.quote-end {
+    font-size: 55px;
+
+    text-align: right;
+
+    height: 30px;
+
+    opacity: 0.35;
+
+    font-family: Georgia, serif;
+}
+
+
+/* =========================================================
+   RIGHT PANEL
+   ========================================================= */
+
+.right-panel {
+    width: 57%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 35px;
+}
+
+
+/* =========================================================
+   LOGIN BOX
+   ========================================================= */
+
+.login-box {
+    width: 100%;
+
+    max-width: 610px;
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 50px 55px;
+
+    box-shadow:
+        0 10px 35px rgba(45, 35, 90, 0.14);
+}
+
+
+/* =========================================================
+   LOGIN HEADING
+   ========================================================= */
+
+.login-heading {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+
+.login-heading h2 {
+    font-size: 34px;
+
+    color: #171735;
+
+    margin-bottom: 12px;
+}
+
+
+.login-heading p {
+    color: #6d6d80;
+
+    font-size: 16px;
+}
+
+
+.heading-line {
+    width: 65px;
+
+    height: 3px;
+
+    background: #673de6;
+
+    margin: 25px auto 0;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+form {
+    width: 100%;
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.form-group {
+    width: 100%;
+
+    margin-bottom: 22px;
+}
+
+
+.form-group label {
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: #171735;
+
+    margin-bottom: 9px;
+}
+
+
+/* =========================================================
+   INPUT BOXES
+   ========================================================= */
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+
+    width: 100%;
+
+    height: 52px;
+
+    padding: 0 16px;
+
+    border: 1px solid #d7d7e2;
+
+    border-radius: 8px;
+
+    background: #fbfbfe;
+
+    color: #333344;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+
+    border-color: #673de6;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 3px rgba(103, 61, 230, 0.10);
+}
+
+
+.form-group input::placeholder {
+    color: #9999aa;
+}
+
+
+/* =========================================================
+   REMEMBER ROW
+   ========================================================= */
+
+.remember-row {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 5px;
+
+    margin-bottom: 25px;
+}
+
+
+.remember {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.remember input {
+    width: 18px;
+
+    height: 18px;
+
+    accent-color: #673de6;
+
+    cursor: pointer;
+}
+
+
+.remember label {
+    font-size: 13px;
+
+    color: #333344;
+
+    cursor: pointer;
+}
+
+
+.forgot {
+    color: #6338d8;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+.forgot:hover {
+    text-decoration: underline;
+}
+.user-type {
+    display: none;
+}
+.login-button {
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(
+        90deg,
+        #5d31d0,
+        #7142e8
+    );
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.login-button:hover {
+    background: linear-gradient(
+        90deg,
+        #4e25bd,
+        #6335d3
+    );
+}
+.or {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 27px 0;
+}
+.or span {
+    height: 1px;
+    background: #dedee7;
+    flex: 1;
+}
+.or p {
+    color: #777789;
+    font-size: 14px;
+    text-transform: lowercase;
+}
+.create-account {
+    width: 100%;
+    height: 53px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #9b82ea;
+    border-radius: 8px;
+    color: #5b32c9;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s;
+}
+.create-account:hover {
+    background: #f5f2ff;
+    border-color: #673de6;
+}
+@media screen and (max-width: 1000px) {
+    .left-panel {
+        width: 38%;
+    }
+    .right-panel {
+        width: 62%;
+
+        padding: 25px;
+    }
+    .login-box {
+        padding: 40px;
+    }
+    .brand {
+        left: 20px;
+
+        width: 280px;
+    }
+    .brand h1 {
+        font-size: 28px;
+    }
+    .quote {
+        left: 30px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .login-page {
+        flex-direction: column;
+    }
+    .left-panel {
+        width: 100%;
+        min-height: 300px;
+        height: 300px;
+        border-radius: 0;
+    }
+    .right-panel {
+        width: 100%;
+        min-height: auto;
+        padding: 25px 15px;
+    }
+    .brand {
+        position: relative;
+
+        top: 25px;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+    }
+    .brand .cap-icon {
+        font-size: 35px;
+    }
+    .brand h1 {
+        font-size: 26px;
+    }
+    .student-image {
+        display: none;
+    }
+    .quote {
+        display: none;
+    }
+    .left-panel::after {
+        bottom: -280px;
+
+        left: -100px;
+    }
+}
+@media screen and (max-width: 500px) {
+
+    .login-box {
+        padding: 30px 22px;
+    }
+    .login-heading h2 {
+        font-size: 27px;
+    }
+    .login-heading p {
+        font-size: 14px;
+    }
+    .remember-row {
+        align-items: flex-start;
+    }
+}

@@ -1,0 +1,589 @@
+/* =====================================================
+   CAMPUSSHARE - STUDENT DASHBOARD
+   ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6fc;
+    color: #172033;
+}
+
+
+/* =====================================================
+   MAIN LAYOUT
+   ===================================================== */
+
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   SIDEBAR
+   ===================================================== */
+
+.sidebar {
+    width: 245px;
+    min-height: 100vh;
+    background: #101c33;
+    color: white;
+    padding: 25px 16px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+.side-logo {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 5px 12px 30px;
+    letter-spacing: 0.3px;
+}
+
+
+.side-logo span {
+    color: #7438e8;
+}
+
+
+.side-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #d7dbea;
+    text-decoration: none;
+
+    padding: 13px 15px;
+    margin: 7px 0;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.25s;
+}
+
+
+.side-link:hover {
+    background: #202d4a;
+    color: white;
+    transform: translateX(3px);
+}
+
+
+.side-link.active {
+    background: #7137e7;
+    color: white;
+    box-shadow: 0 5px 15px rgba(113, 55, 231, 0.25);
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+   ===================================================== */
+
+.dashboard-main {
+    margin-left: 245px;
+    width: calc(100% - 245px);
+
+    padding: 35px 40px;
+
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+
+.dashboard-header h2 {
+    font-size: 27px;
+    color: #111b34;
+    margin-bottom: 6px;
+}
+
+
+.dashboard-header p {
+    color: #737b90;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   PRIMARY BUTTON
+   ===================================================== */
+
+.primary-btn {
+    display: inline-block;
+
+    background: #7137e7;
+    color: white;
+
+    text-decoration: none;
+
+    padding: 12px 21px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: 0.25s;
+}
+
+
+.primary-btn:hover {
+    background: #5e29ca;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(113, 55, 231, 0.25);
+}
+
+
+/* =====================================================
+   STUDENT INFORMATION
+   ===================================================== */
+
+.student-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    margin-top: 8px;
+}
+
+
+.student-info span {
+    color: #656d82;
+    font-size: 13px;
+}
+
+
+.student-info strong {
+    color: #222b40;
+}
+
+
+/* =====================================================
+   STATISTICS
+   ===================================================== */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 28px;
+}
+
+
+.stat-card {
+    min-height: 115px;
+
+    padding: 22px;
+
+    border-radius: 12px;
+
+    background: white;
+
+    border: 1px solid #e7e8ef;
+
+    box-shadow:
+        0 4px 15px rgba(24, 31, 50, 0.04);
+
+    transition: 0.25s;
+}
+
+
+.stat-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 25px rgba(24, 31, 50, 0.08);
+}
+
+
+.stat-card h2 {
+    font-size: 29px;
+    margin-bottom: 10px;
+}
+
+
+.stat-card p {
+    font-size: 13px;
+    color: #687086;
+}
+
+
+/* =====================================================
+   STAT COLORS
+   ===================================================== */
+
+.stat-card.orange {
+    background: linear-gradient(
+        135deg,
+        #fff4df,
+        #ffeed3
+    );
+
+    border-color: #ffe0b1;
+}
+
+
+.stat-card.orange h2 {
+    color: #d67a00;
+}
+
+
+.stat-card.purple {
+    background: linear-gradient(
+        135deg,
+        #f1eaff,
+        #e9ddff
+    );
+
+    border-color: #dfceff;
+}
+
+
+.stat-card.purple h2 {
+    color: #6932d8;
+}
+
+
+.stat-card.green {
+    background: linear-gradient(
+        135deg,
+        #e4faed,
+        #d8f6e5
+    );
+
+    border-color: #c7efd7;
+}
+
+
+.stat-card.green h2 {
+    color: #069650;
+}
+
+
+.stat-card.blue {
+    background: linear-gradient(
+        135deg,
+        #e4f5ff,
+        #d9effc
+    );
+
+    border-color: #c8e8fa;
+}
+
+
+.stat-card.blue h2 {
+    color: #087ab8;
+}
+
+
+/* =====================================================
+   DASHBOARD SECTION
+   ===================================================== */
+
+.dashboard-section {
+    background: white;
+
+    border: 1px solid #e7e8ef;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 4px 18px rgba(24, 31, 50, 0.04);
+}
+
+
+.section-title {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+
+.section-title h2 {
+    font-size: 18px;
+    color: #18213a;
+}
+
+
+.section-title a {
+    color: #6932d8;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+.section-title a:hover {
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   REQUEST ROW
+   ===================================================== */
+
+.item-row {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 15px;
+
+    border: 1px solid #ececf1;
+
+    border-radius: 10px;
+
+    margin-bottom: 10px;
+
+    transition: 0.2s;
+}
+
+
+.item-row:last-child {
+    margin-bottom: 0;
+}
+
+
+.item-row:hover {
+    border-color: #d6c7f7;
+
+    background: #faf8ff;
+
+    transform: translateX(2px);
+}
+
+
+.item-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f0eaff;
+
+    border-radius: 9px;
+
+    font-size: 22px;
+
+    flex-shrink: 0;
+}
+
+
+.item-info {
+    flex: 1;
+}
+
+
+.item-info h3 {
+    font-size: 14px;
+    color: #202a40;
+
+    margin-bottom: 5px;
+}
+
+
+.item-info p {
+    color: #7a8294;
+    font-size: 12px;
+}
+
+
+.request-count {
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: #f0e7ff;
+
+    color: #6c32d9;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   QUICK ACTIONS
+   ===================================================== */
+
+.quick-actions {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+.quick-action {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px;
+
+    border: 1px solid #e7e8ef;
+
+    border-radius: 11px;
+
+    text-decoration: none;
+
+    color: #202940;
+
+    transition: 0.25s;
+}
+
+
+.quick-action:hover {
+    border-color: #cdb8f6;
+
+    background: #faf8ff;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 7px 20px rgba(45, 28, 85, 0.08);
+}
+
+
+.quick-action-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f0eaff;
+
+    border-radius: 9px;
+
+    font-size: 22px;
+}
+
+
+.quick-action h3 {
+    font-size: 14px;
+
+    margin-bottom: 4px;
+}
+
+
+.quick-action p {
+    font-size: 12px;
+
+    color: #7a8294;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 1000px) {
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .quick-actions {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 75px;
+        padding: 20px 10px;
+    }
+
+
+    .side-logo {
+        font-size: 0;
+        text-align: center;
+    }
+
+
+    .side-logo:first-letter {
+        font-size: 22px;
+    }
+
+
+    .side-link {
+        justify-content: center;
+        font-size: 0;
+    }
+
+
+    .dashboard-main {
+        margin-left: 75px;
+
+        width: calc(100% - 75px);
+
+        padding: 20px;
+    }
+
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .dashboard-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+}

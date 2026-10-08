@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusShare - Login</title>
+<link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/site.css">
+<style>
+    .quick-chips {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+    }
+    .chip-btn {
+        background: #f1f5f9;
+        border: 1px solid #cbd5e1;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        color: #475569;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+    .chip-btn:hover {
+        background: #e2e8f0;
+        border-color: #94a3b8;
+        color: #0f172a;
+    }
+    .login-alert {
+        display: none;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-size: 13px;
+        margin-bottom: 14px;
+        line-height: 1.4;
+    }
+    .login-alert.show-error {
+        display: block;
+        background: #fee2e2;
+        color: #b91c1c;
+        border: 1px solid #f87171;
+    }
+    .login-alert.show-success {
+        display: block;
+        background: #dcfce7;
+        color: #15803d;
+        border: 1px solid #86efac;
+    }
+    .login-alert.show-info {
+        display: block;
+        background: #e0f2fe;
+        color: #0369a1;
+        border: 1px solid #7dd3fc;
+    }
+</style>
+<script src="../js/login.js" defer></script>
+</head>
+<body>
+<div class="login-page">
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+        <div class="brand">
+            <div class="cap-icon">🎓</div>
+            <h1>Campus<span>Share</span></h1>
+            <p>College Resource Sharing Platform</p>
+        </div>
+        <div class="student-image">
+            <img src="../images/students.png" alt="College Students">
+        </div>
+        <div class="quote">
+            <div class="quote-mark">“</div>
+            <p>Share Resources,<br>Build Connections,<br>Grow Together.</p>
+            <div class="quote-end">”</div>
+        </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+        <div class="login-box">
+            <div class="login-heading">
+                <h2>Welcome Back!</h2>
+                <p>Login to continue to CampusShare</p>
+                <div class="heading-line"></div>
+            </div>
+
+            <!-- QUICK FILL CHIPS FOR CONVENIENCE -->
+            <div class="quick-chips">
+                <button type="button" class="chip-btn" id="chipStudent" title="Quick fill Rahul Sharma student credentials">
+                    🎓 Quick Fill: Student (Rahul)
+                </button>
+                <button type="button" class="chip-btn" id="chipAdmin" title="Quick fill Admin credentials">
+                    🛡️ Quick Fill: Admin
+                </button>
+            </div>
+
+            <!-- STATUS ALERT BOX -->
+            <div id="loginStatus" class="login-alert"></div>
+
+            <!-- LOGIN FORM -->
+            <form id="loginForm" name="form1">
+                <!-- EMAIL -->
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="t1"
+                        placeholder="Enter your college email"
+                        autocomplete="email"
+                        required
+                        autofocus
+                    >
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="t2"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <!-- REMEMBER + FORGOT PASSWORD -->
+                <div class="remember-row">
+                    <div class="remember">
+                        <input
+                            type="checkbox"
+                            name="remember"
+                            id="remember"
+                            value="yes"
+                            checked
+                        >
+                        <label for="remember">Remember Me</label>
+                    </div>
+
+                    <a href="login.html" class="forgot" onclick="alert('Demo notice: For test accounts, passwords are password123 (students) and admin123 (admin).'); return false;">
+                        Forgot Password?
+                    </a>
+                </div>
+
+                <!-- USER TYPE -->
+                <div class="user-type">
+                    <label>User Type</label>
+                    <input type="radio" name="role" id="roleStudent" value="Student" checked>
+                    <label for="roleStudent">Student</label>
+
+                    <input type="radio" name="role" id="roleAdmin" value="Administrator">
+                    <label for="roleAdmin">Administrator</label>
+                </div>
+
+                <!-- LOGIN BUTTON -->
+                <button type="submit" class="login-button" id="loginButton">
+                    Login
+                </button>
+
+                <!-- OR -->
+                <div class="or">
+                    <span></span>
+                    <p>or</p>
+                    <span></span>
+                </div>
+
+                <!-- REGISTRATION -->
+                <a href="registration.html" class="create-account" id="registerLink">
+                    Create New Account
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

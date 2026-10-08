@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+}
+
+.top-bar {
+    min-height: 70px;
+    padding: 15px 40px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #2878ff;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+}
+
+nav a.active,
+nav a:hover {
+    color: #2878ff;
+}
+
+#logoutButton {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+    background: #2878ff;
+    color: white;
+    cursor: pointer;
+}
+
+.requests-page {
+    padding: 40px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.page-heading h1 {
+    margin-bottom: 8px;
+}
+
+.page-heading p {
+    color: #666;
+}
+
+.filter-section {
+    margin: 25px 0;
+}
+
+#statusFilter {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    min-width: 180px;
+}
+
+.requests-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.request-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.request-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.request-header h2 {
+    margin: 0;
+}
+
+.status {
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.status.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status.approved {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status.rejected {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.status.cancelled {
+    background: #e2e3e5;
+    color: #383d41;
+}
+
+.request-details {
+    margin-top: 15px;
+    color: #555;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 50px;
+    background: white;
+    border-radius: 12px;
+}
+
+.empty-message a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 18px;
+    background: #2878ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
+.loading-message {
+    text-align: center;
+    padding: 40px;
+}

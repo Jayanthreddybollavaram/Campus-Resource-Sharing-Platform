@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+}
+
+.top-bar {
+    min-height: 70px;
+    padding: 15px 40px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #2878ff;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+nav a.active,
+nav a:hover {
+    color: #2878ff;
+}
+
+#logoutButton {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+    background: #2878ff;
+    color: white;
+    cursor: pointer;
+}
+
+.resources-page {
+    padding: 40px;
+}
+
+.page-heading h1 {
+    margin-bottom: 8px;
+}
+
+.page-heading p {
+    color: #666;
+}
+
+.search-section {
+    margin: 30px 0;
+    display: flex;
+    gap: 15px;
+}
+
+.search-section input,
+.search-section select {
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+.search-section input {
+    width: 350px;
+}
+
+.resource-container {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.resource-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.resource-card-image {
+    width: 100%;
+    height: 200px;
+    flex: 0 0 200px;
+    padding: 18px;
+    background: #eef2f6;
+}
+
+.resource-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.resource-card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.resource-category {
+    font-size: 13px;
+    color: #2878ff;
+    font-weight: bold;
+}
+
+.resource-card h2 {
+    margin: 12px 0;
+}
+
+.resource-card p {
+    color: #666;
+}
+
+.details-button {
+    margin-top: auto;
+    width: 100%;
+    padding: 11px;
+    border: none;
+    border-radius: 7px;
+    background: #2878ff;
+    color: white;
+    cursor: pointer;
+}
+
+.loading-message,
+.empty-message {
+    text-align: center;
+    padding: 40px;
+}

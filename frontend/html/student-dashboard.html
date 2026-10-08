@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CampusShare - Student Dashboard</title>
+
+    <link rel="stylesheet"
+          href="../css/student-dashboard.css">
+    <link rel="stylesheet" href="../css/site.css">
+
+    <script src="../js/student-dashboard.js"
+            defer></script>
+
+</head>
+
+
+<body>
+
+<div class="dashboard-layout">
+
+
+    <!-- ================================================= -->
+    <!-- SIDEBAR -->
+    <!-- ================================================= -->
+
+    <aside class="sidebar">
+
+    <div class="side-logo">
+        🎓 Campus<span>Share</span>
+    </div>
+
+
+    <a href="student-dashboard.html"
+       class="side-link active">
+
+        🏠 Dashboard
+
+    </a>
+
+
+    <a href="browse.html"
+       class="side-link">
+
+        📚 Browse Resources
+
+    </a>
+
+
+    <a href="post-resource.html"
+       class="side-link">
+
+        ➕ Post a Resource
+
+    </a>
+
+
+    <a href="my_requests.html"
+       class="side-link">
+
+        📝 My Requests
+
+    </a>
+
+
+    <a href="active-borrowings.html"
+       class="side-link">
+
+        📦 Active Borrowings
+
+    </a>
+
+
+    <a href="Borrow-request.html"
+       class="side-link">
+
+        📩 Borrow Requests
+
+    </a>
+
+
+    <a href="login.html"
+       class="side-link">
+
+        🚪 Logout
+
+    </a>
+
+</aside>
+
+
+
+    <!-- ================================================= -->
+    <!-- MAIN DASHBOARD -->
+    <!-- ================================================= -->
+
+    <main class="dashboard-main">
+
+
+        <!-- ================================================= -->
+        <!-- HEADER -->
+        <!-- ================================================= -->
+
+        <div class="dashboard-header">
+
+            <div>
+
+                <h2 id="welcomeMessage">
+                    Welcome back!
+                </h2>
+
+                <p id="studentInfo">
+                    Your campus profile at a glance.
+                </p>
+
+            </div>
+
+
+            <a href="browse.html"
+               class="primary-btn">
+
+                + Find Resources
+
+            </a>
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- STUDENT INFORMATION -->
+        <!-- ================================================= -->
+
+        <div class="student-information">
+
+            <div>
+
+                <strong>Student ID</strong>
+
+                <p id="studentId">
+                    Loading...
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <strong>Roll Number</strong>
+
+                <p id="studentRollNumber">
+                    Loading...
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <strong>Branch</strong>
+
+                <p id="studentDepartment">
+                    Loading...
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <strong>Year</strong>
+
+                <p id="studentYear">
+                    Loading...
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- STATISTICS -->
+        <!-- ================================================= -->
+
+        <div class="stats-grid">
+
+
+            <!-- TOTAL REQUESTS -->
+
+            <div class="stat-card orange">
+
+                <h2 id="totalRequests">
+                    0
+                </h2>
+
+                <p>
+                    Total Requests
+                </p>
+
+            </div>
+
+
+
+            <!-- PENDING REQUESTS -->
+
+            <div class="stat-card purple">
+
+                <h2 id="pendingRequests">
+                    0
+                </h2>
+
+                <p>
+                    Pending Requests
+                </p>
+
+            </div>
+
+
+
+            <!-- ACTIVE BORROWINGS -->
+
+            <div class="stat-card green">
+
+                <h2 id="activeBorrowings">
+                    0
+                </h2>
+
+                <p>
+                    Active Borrowings
+                </p>
+
+            </div>
+
+
+
+            <!-- AVAILABLE RESOURCES -->
+
+            <div class="stat-card blue">
+
+                <h2 id="availableResources">
+                    0
+                </h2>
+
+                <p>
+                    Available Resources
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- RECENT REQUESTS -->
+        <!-- ================================================= -->
+
+        <div class="dashboard-section">
+
+
+            <div class="section-title">
+
+                <h2>
+                    Recent Requests
+                </h2>
+
+                <a href="my_requests.html">
+                    View All
+                </a>
+
+            </div>
+
+
+            <!-- JavaScript will insert requests here -->
+
+            <div id="recentRequests">
+
+                <p>
+                    Loading requests...
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- QUICK ACTIONS -->
+        <!-- ================================================= -->
+
+        <div class="dashboard-section">
+
+
+            <div class="section-title">
+
+                <h2>
+                    Quick Actions
+                </h2>
+
+            </div>
+
+
+            <div class="quick-actions">
+
+
+                <a href="browse.html"
+                   class="action-card">
+
+                    <div class="item-icon">
+                        📚
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Browse Resources
+                        </h3>
+
+                        <p>
+                            Find books, calculators,
+                            kits and other resources.
+                        </p>
+
+                    </div>
+
+                </a>
+                
+
+
+                <a href="my_requests.html"
+                   class="action-card">
+
+                    <div class="item-icon">
+                        📝
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            My Requests
+                        </h3>
+
+                        <p>
+                            Check the status of your
+                            borrowing requests.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+
+                <a href="active-borrowings.html"
+                   class="action-card">
+
+                    <div class="item-icon">
+                        📦
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Active Borrowings
+                        </h3>
+
+                        <p>
+                            View resources currently
+                            borrowed by you.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+</div>
+
+</body>
+
+</html>
