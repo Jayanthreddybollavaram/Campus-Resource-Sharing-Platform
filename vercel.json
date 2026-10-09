@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/frontend/html/homepage.html"
+    },
+    {
+      "source": "/html/:path*",
+      "destination": "/frontend/html/:path*"
+    },
+    {
+      "source": "/css/:path*",
+      "destination": "/frontend/css/:path*"
+    },
+    {
+      "source": "/js/:path*",
+      "destination": "/frontend/js/:path*"
+    },
+    {
+      "source": "/images/:path*",
+      "destination": "/frontend/images/:path*"
+    }
+  ]
+}
