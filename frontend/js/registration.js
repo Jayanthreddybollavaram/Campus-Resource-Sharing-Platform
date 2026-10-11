@@ -1,10 +1,9 @@
 "use strict";
 
-const API_BASE_URL = window.location.protocol === "file:"
-    ? "http://localhost:5000"
-    : window.location.port === "5000"
-        ? window.location.origin
-        : `${window.location.protocol}//${window.location.hostname}:5000`;
+const API_BASE_URL = window.CAMPUSSHARE_API_BASE_URL
+    || (window.location.protocol === "file:"
+        ? "http://localhost:5000"
+        : window.location.origin);
 
 document.addEventListener("DOMContentLoaded", function () {
     const registerForm = document.getElementById("registerForm");

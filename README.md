@@ -114,7 +114,7 @@ Open the application at <http://localhost:5000/>. The backend serves the fronten
 
 The `vercel.json` file maps the site root and the `/html`, `/css`, `/js`, and `/images` URLs to the existing `frontend` folders. In Vercel, set the Root Directory to the folder containing `vercel.json` (the `Project` folder if the repository contains an outer wrapper), select **Other** as the framework preset, and leave the build command and output directory empty. Redeploy after changing these settings.
 
-This configuration serves the static pages only. The Express API and MySQL database are not deployed by it, and the frontend currently calls the API at `http://localhost:5000`; login, resource data, and other API-backed features therefore require deploying the backend and configuring the frontend to use its public URL.
+This configuration serves the static pages only; the Express API and MySQL database must be deployed separately. When the frontend is served by the Express backend (for example, on Render), API requests use that same HTTPS origin and do not append a port. When hosting the frontend separately, set `window.CAMPUSSHARE_API_BASE_URL` to the backend's public origin (for example, `https://your-backend.onrender.com`) in a script before the page's frontend JavaScript.
 
 ## Useful URLs
 

@@ -1,6 +1,9 @@
 "use strict";
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = `${window.CAMPUSSHARE_API_BASE_URL
+    || (window.location.protocol === "file:"
+        ? "http://localhost:5000"
+        : window.location.origin)}/api`;
 
 document.addEventListener("DOMContentLoaded", function () {
     const token = localStorage.getItem("token") || localStorage.getItem("campusshare_token");

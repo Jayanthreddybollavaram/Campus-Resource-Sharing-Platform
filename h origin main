@@ -1,0 +1,142 @@
+[1mdiff --git a/Campus-Resource-Sharing.pptx b/Campus-Resource-Sharing.pptx[m
+[1mdeleted file mode 100644[m
+[1mindex 80c64f6..0000000[m
+Binary files a/Campus-Resource-Sharing.pptx and /dev/null differ
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 80ae9a8..a879a74 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -34,7 +34,7 @@[m [mProject/[m
+ |   |-- uploads/            # Uploaded resource images[m
+ |   |-- server.js           # Web server and frontend static hosting[m
+ |   |-- package.json[m
+[31m-|   `-- .env                # Local configuration; do not publish[m
+[32m+[m[32m|   `-- .env                # Optional local configuration; do not publish[m
+ |-- database/[m
+ |   `-- campus_share.sql    # Schema and sample data[m
+ |-- frontend/[m
+[36m@@ -76,7 +76,7 @@[m [mThe SQL dump includes sample records for local development. Treat these as demo[m
+ [m
+ ### 2. Configure the backend[m
+ [m
+[31m-Create or update `backend/.env` with values for your local MySQL instance and a private JWT signing secret:[m
+[32m+[m[32mCreate or update `.env` with values for your local MySQL instance and a private JWT signing secret. The backend loads configuration from `backend/.env`, then the project-root `.env`, then the workspace-root `.env` (the file next to the `Project` folder); the first file found for each setting takes precedence:[m
+ [m
+ ```dotenv[m
+ PORT=5000[m
+[36m@@ -88,7 +88,7 @@[m [mDB_PORT=3306[m
+ JWT_SECRET=replace_with_a_long_random_secret[m
+ ```[m
+ [m
+[31m-Keep `.env` private and never commit real passwords or signing secrets. `PORT` defaults to `5000` and `DB_PORT` defaults to `3306` if omitted.[m
+[32m+[m[32mReplace the password and JWT secret placeholders with your local values. If your MySQL account has no password, use `DB_PASSWORD=`. Keep `.env` private and never commit real passwords or signing secrets. `PORT` defaults to `5000` and `DB_PORT` defaults to `3306` if omitted.[m
+ [m
+ ### 3. Install dependencies and run tests[m
+ [m
+[36m@@ -110,6 +110,12 @@[m [mnpm start[m
+ [m
+ Open the application at <http://localhost:5000/>. The backend serves the frontend, so run the application through this server rather than opening the HTML files directly. For development with automatic server restarts, use `npm run dev`.[m
+ [m
+[32m+[m[32m## Deploying the static pages to Vercel[m
+[32m+[m
+[32m+[m[32mThe `vercel.json` file maps the site root and the `/html`, `/css`, `/js`, and `/images` URLs to the existing `frontend` folders. In Vercel, set the Root Directory to the folder containing `vercel.json` (the `Project` folder if the repository contains an outer wrapper), select **Other** as the framework preset, and leave the build command and output directory empty. Redeploy after changing these settings.[m
+[32m+[m
+[32m+[m[32mThis configuration serves the static pages only. The Express API and MySQL database are not deployed by it, and the frontend currently calls the API at `http://localhost:5000`; login, resource data, and other API-backed features therefore require deploying the backend and configuring the frontend to use its public URL.[m
+[32m+[m
+ ## Useful URLs[m
+ [m
+ | URL | Purpose |[m
+[36m@@ -145,7 +151,7 @@[m [mProtected routes require an `Authorization: Bearer <token>` header unless noted.[m
+ [m
+ ## Troubleshooting[m
+ [m
+[31m-- **Database connection fails:** Make sure MySQL is running, the `campus_share` database has been imported, and the `DB_*` values in `backend/.env` are correct.[m
+[32m+[m[32m- **Database connection fails:** Make sure one of the supported `.env` files defines `DB_HOST`, `DB_USER`, `DB_PASSWORD`, and `DB_NAME`, and verify that MySQL is running and the `campus_share` database has been imported. Replace the `DB_PASSWORD` placeholder with your local MySQL password, or set `DB_PASSWORD=` if the account has no password.[m
+ - **Port 5000 is already in use:** Stop the other process using it or set a different `PORT` in `backend/.env`.[m
+ - **The API runs but database-backed pages fail:** Check `http://localhost:5000/api/db-test` and review the backend terminal for connection errors.[m
+ [m
+[1mdiff --git a/backend/config/database.js b/backend/config/database.js[m
+[1mindex d77d069..8cbad31 100644[m
+[1m--- a/backend/config/database.js[m
+[1m+++ b/backend/config/database.js[m
+[36m@@ -1,17 +1,33 @@[m
+ const mysql = require("mysql2/promise");[m
+[31m-require("dotenv").config();[m
+[32m+[m[32mconst path = require("path");[m
+ [m
+[32m+[m[32mrequire("dotenv").config({[m
+[32m+[m[32m    path: [[m
+[32m+[m[32m        path.resolve(__dirname, "..", ".env"),[m
+[32m+[m[32m        path.resolve(__dirname, "..", "..", ".env"),[m
+[32m+[m[32m        path.resolve(__dirname, "..", "..", "..", ".env")[m
+[32m+[m[32m    ][m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m[32mconst requiredConfig = ["DB_HOST", "DB_USER", "DB_PASSWORD", "DB_NAME"];[m
+ const pool = mysql.createPool({[m
+[31m-    host: process.env.DB_HOST,[m
+[31m-    user: process.env.DB_USER,[m
+[31m-    password: process.env.DB_PASSWORD,[m
+[31m-    database: process.env.DB_NAME,[m
+[32m+[m[32m    host: process.env.DB_HOST || "localhost",[m
+[32m+[m[32m    user: process.env.DB_USER || "",[m
+[32m+[m[32m    password: process.env.DB_PASSWORD || "",[m
+[32m+[m[32m    database: process.env.DB_NAME || "",[m
+     port: process.env.DB_PORT || 3306,[m
+     waitForConnections: true,[m
+     connectionLimit: 10,[m
+     queueLimit: 0[m
+ });[m
+ async function testDatabaseConnection() {[m
+[32m+[m[32m    const missingConfig = requiredConfig.filter((key) => process.env[key] === undefined);[m
+[32m+[m[32m    if (missingConfig.length > 0) {[m
+[32m+[m[32m        console.error("MySQL database configuration is incomplete.");[m
+[32m+[m[32m        console.error(`Set ${missingConfig.join(", ")} in a backend or project .env file.`);[m
+[32m+[m[32m        return false;[m
+[32m+[m[32m    }[m
+[32m+[m
+     try {[m
+         const connection = await pool.getConnection();[m
+ [m
+[1mdiff --git a/backend/server.js b/backend/server.js[m
+[1mindex 031bae1..ed1c4c0 100644[m
+[1m--- a/backend/server.js[m
+[1m+++ b/backend/server.js[m
+[36m@@ -1,7 +1,6 @@[m
+ const express = require("express");[m
+ const cors = require("cors");[m
+ const path = require("path");[m
+[31m-require("dotenv").config();[m
+ [m
+ const { pool, testDatabaseConnection } = require("./config/database");[m
+ [m
+[1mdiff --git a/vercel.json b/vercel.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e07d2d8[m
+[1m--- /dev/null[m
+[1m+++ b/vercel.json[m
+[36m@@ -0,0 +1,24 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m  "rewrites": [[m
+[32m+[m[32m    {[m
+[32m+[m[32m      "source": "/",[m
+[32m+[m[32m      "destination": "/frontend/html/homepage.html"[m
+[32m+[m[32m    },[m
+[32m+[m[32m    {[m
+[32m+[m[32m      "source": "/html/:path*",[m
+[32m+[m[32m      "destination": "/frontend/html/:path*"[m
+[32m+[m[32m    },[m
+[32m+[m[32m    {[m
+[32m+[m[32m      "source": "/css/:path*",[m
+[32m+[m[32m      "destination": "/frontend/css/:path*"[m
+[32m+[m[32m    },[m
+[32m+[m[32m    {[m
+[32m+[m[32m      "source": "/js/:path*",[m
+[32m+[m[32m      "destination": "/frontend/js/:path*"[m
+[32m+[m[32m    },[m
+[32m+[m[32m    {[m
+[32m+[m[32m      "source": "/images/:path*",[m
+[32m+[m[32m      "destination": "/frontend/images/:path*"[m
+[32m+[m[32m    }[m
+[32m+[m[32m  ][m
+[32m+[m[32m}[m
