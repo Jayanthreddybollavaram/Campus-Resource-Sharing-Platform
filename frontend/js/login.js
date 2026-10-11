@@ -2,8 +2,10 @@
 
 const API_BASE_URL = window.CAMPUSSHARE_API_BASE_URL
     || (window.location.protocol === "file:"
+        || window.location.hostname === "localhost"
+        || window.location.hostname === "127.0.0.1"
         ? "http://localhost:5000"
-        : window.location.origin);
+        : "https://campus-resource-sharing-platform-nglx.onrender.com");
 
 document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("loginForm");
